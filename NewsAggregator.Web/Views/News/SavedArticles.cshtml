@@ -1,0 +1,67 @@
+﻿@model PaginationModel<NewsAggregator.Web.Models.Domain.Article>
+
+@{
+    ViewData["Title"] = "Saved Articles";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+@if (Model.Items != null && Model.Items.Count > 0)
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Source</th>
+                <th>Url</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var article in Model.Items)
+            {
+                <tr>
+                    <td>@article.Title</td>
+                    <td>@article.Description</td>
+                    <td>@article.Source</td>
+                    <td>@article.Url</td>
+                    <td>
+                        <a asp-action="ViewArticle" asp-route-id="@article.SavedArticleId" class="btn btn-info btn-sm">View</a>
+                        <a asp-action="DeleteArticle" asp-route-id="@article.SavedArticleId" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <!-- Pagination controls -->
+    <nav>
+        <ul class="pagination">
+            @if (Model.CurrentPage > 1)
+            {
+                <li class="page-item">
+                    <a class="page-link" asp-action="SavedArticles" asp-route-page="@(Model.CurrentPage - 1)">Previous</a>
+                </li>
+            }
+
+            @for (int i = 1; i <= (int)Math.Ceiling((double)Model.TotalCount / Model.PageSize); i++)
+            {
+                <li class="page-item @(i == Model.CurrentPage ? "active" : "")">
+                    <a class="page-link" asp-action="SavedArticles" asp-route-page="@i">@i</a>
+                </li>
+            }
+
+            @if (Model.CurrentPage < (int)Math.Ceiling((double)Model.TotalCount / Model.PageSize))
+            {
+                <li class="page-item">
+                    <a class="page-link" asp-action="SavedArticles" asp-route-page="@(Model.CurrentPage + 1)">Next</a>
+                </li>
+            }
+        </ul>
+    </nav>
+}
+else
+{
+    <p>No saved articles available.</p>
+}

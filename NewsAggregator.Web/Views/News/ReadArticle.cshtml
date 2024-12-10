@@ -1,0 +1,13 @@
+﻿@model NewsAggregator.Web.Models.ViewModels.DetailedArticleViewModel
+@{
+    ViewData["Title"] = "Read Article";
+}
+<h1>@Model.Title</h1>
+<p><strong>Source:</strong> @Model.Source</p>
+<p><strong>Published on:</strong> @Model.PublishedAt.ToShortDateString()</p>
+<p>@Model.Description</p>
+<div>
+    <h3>Content:</h3>
+    <p>@Model.Content</p>
+</div>
+<a href="@Model.Url" target="_blank">Read More</a>

@@ -1,0 +1,59 @@
+﻿@model NewsAggregator.ViewModels.LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+<div class="container">
+    <div class="row">
+        <!-- Center the login form in the middle of the page using Bootstrap grid classes -->
+        <div class="col-md-6 offset-md-3">
+            <!-- Display the login heading -->
+            <h2 class="text-center text-dark mt-5">Login</h2>
+            <div class="text-center mb-5 text-dark"></div>
+            <div class="card my-5">
+
+
+                <form class="card-body card-body-color p-lg-5" asp-controller="account" asp-action="Login" method="post">
+
+                    <!-- Profile image placeholder in the login form -->
+                    <div asp-validation-summary="All" class="text-danger">
+                    </div>
+                    <div class="text-center">
+                        <img src="http://surl.li/ryekeg" class="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"
+                             width="200px" alt="profile">
+                    </div>
+
+                    <!-- Username input field -->
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="Username" aria-describedby="emailHelp"
+                               placeholder="User Name" asp-for="Email">
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+
+                    <!-- Password input field -->
+                    <div class="mb-3">
+                        <input type="password" class="form-control" id="password" placeholder="password" asp-for="Password">
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+
+                    <!-- Submit button to log in -->
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-color px-5 mb-5 w-100">Login</button>
+                    </div>
+
+                    <!-- Link to the registration page if the user is not registered -->
+                    <div id="emailHelp" class="form-text text-center mb-5 text-dark">
+                        Not Registered? <a href="@Url.Action("Register", "Account")" class="text-blue fw-bold">Create an Account</a>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

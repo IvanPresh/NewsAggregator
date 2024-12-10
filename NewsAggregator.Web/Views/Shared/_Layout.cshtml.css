@@ -1,0 +1,87 @@
+﻿/* Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+/* Navbar brand styles */
+.ca.navbar-brand {
+    white-space: normal;
+    text-align: center; 
+    word-break: break-all; 
+}
+
+/* Link styles */
+a {
+    color: #0077cc; /* Primary link color */
+    text-decoration: none; /* Removes underline */
+}
+
+    a:hover {
+        color: #005fa3; /* Darker shade on hover */
+    }
+
+/* Primary button styles */
+.btn-primary {
+    color: #fff; 
+    background-color: #1b6ec2; 
+    border-color: #1861ac; 
+}
+
+    .btn-primary:hover {
+        background-color: #1861ac; /* Darker background on hover */
+        border-color: #0f4e85; /* Darker border on hover */
+    }
+
+/* Active link styles in nav pills */
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+    color: #fff; 
+    background-color: #1b6ec2; 
+    border-color: #1861ac; 
+}
+
+/* Border styles */
+.border-top {
+    border-top: 1px solid #e5e5e5; /* Light gray top border */
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5; /* Light gray bottom border */
+}
+
+/* Box shadow style */
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); /* Light shadow effect */
+}
+
+/* Accept policy button styles */
+button.accept-policy {
+    font-size: 1rem; /* Standard font size */
+    line-height: inherit; /* Inherit line height */
+}
+
+/* Footer styles */
+.footer {
+    position: absolute;
+    bottom: 0; 
+    width: 100%; 
+    white-space: nowrap; 
+    line-height: 60px; 
+    background-color: #f8f9fa; 
+    color: #6c757d; 
+    text-align: center; 
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 1.5rem; /* Increase font size on smaller screens */
+    }
+
+    .btn-primary {
+        width: 100%; /* Full-width buttons on smaller screens */
+    }
+
+    .footer {
+        font-size: 0.875rem; /* Smaller footer text */
+        line-height: 40px; /* Adjust line height */
+    }
+}
